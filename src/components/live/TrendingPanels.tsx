@@ -80,22 +80,30 @@ export function TrendingPanels() {
           }
         });
 
-        // Filter valid live events from traffic stats (drop deprecated dummy slugs)
+        // Filter valid live events from traffic stats (drop deprecated dummy slugs & deduplicate identical events)
         const rawEvents = trafficData.topEvents || (trafficData.eventViews ? Object.entries(trafficData.eventViews).map(([eventSlug, views]) => ({ eventSlug, views })) : []);
         const matchedEvents: TopEvent[] = [];
         const seenSlugs = new Set<string>();
+        const seenTitles = new Set<string>();
+
+        const cleanTitleKey = (t: string) => (t || "").replace(/\[[^\]]*\]/g, "").replace(/<[^>]*>/g, "").replace(/\s+/g, "").toLowerCase();
 
         if (Array.isArray(rawEvents)) {
           rawEvents.forEach((item: any) => {
             const slug = item.eventSlug;
             // Only include if it matches a real scheduled live event
             if (eventMap.has(slug) && !seenSlugs.has(slug)) {
-              seenSlugs.add(slug);
-              matchedEvents.push({
-                eventSlug: slug,
-                title: eventMap.get(slug)!.title,
-                views: Number(item.views || 0),
-              });
+              const fullTitle = eventMap.get(slug)!.title;
+              const titleKey = cleanTitleKey(fullTitle);
+              if (!seenTitles.has(titleKey)) {
+                seenSlugs.add(slug);
+                seenTitles.add(titleKey);
+                matchedEvents.push({
+                  eventSlug: slug,
+                  title: fullTitle,
+                  views: Number(item.views || 0),
+                });
+              }
             }
           });
         }
@@ -106,12 +114,16 @@ export function TrendingPanels() {
         // Fill remaining slots with upcoming scheduled real events
         liveEvents.forEach((e: any) => {
           if (matchedEvents.length < 9 && !seenSlugs.has(e.slug)) {
-            seenSlugs.add(e.slug);
-            matchedEvents.push({
-              eventSlug: e.slug,
-              title: e.title,
-              views: e.waitingCount || Math.floor(Math.random() * 800) + 200,
-            });
+            const titleKey = cleanTitleKey(e.title);
+            if (!seenTitles.has(titleKey)) {
+              seenSlugs.add(e.slug);
+              seenTitles.add(titleKey);
+              matchedEvents.push({
+                eventSlug: e.slug,
+                title: e.title,
+                views: e.waitingCount || Math.floor(Math.random() * 800) + 200,
+              });
+            }
           }
         });
 
@@ -137,28 +149,28 @@ export function TrendingPanels() {
             <li key={server.hostSlug}>
               <Link
                 href={`/server/${server.hostSlug}`}
-                className="flex items-center justify-between p-2 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-[#131929] group"
+                className="flex items-center justify-between gap-3 p-2 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-[#131929] group min-w-0"
               >
-                <div className="flex items-center gap-3">
-                  <span className={`w-4 text-center text-xs font-black ${
+                <div className="flex items-center gap-3 min-w-0 flex-1 overflow-hidden">
+                  <span className={`w-4 shrink-0 text-center text-xs font-black ${
                     idx === 0 ? "text-amber-500 dark:text-amber-400" : idx === 1 ? "text-slate-400 dark:text-slate-300" : idx === 2 ? "text-amber-600" : "text-slate-400 dark:text-slate-500"
                   }`}>
                     {idx + 1}
                   </span>
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/80 border border-blue-200 dark:border-blue-900/50 text-xs font-bold text-blue-600 dark:text-blue-400">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/80 border border-blue-200 dark:border-blue-900/50 text-xs font-bold text-blue-600 dark:text-blue-400">
                     {server.tag}
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <div className="flex flex-col min-w-0 flex-1 overflow-hidden">
+                    <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
                       {server.name}
                     </span>
-                    <span className="text-[10px] text-slate-500 font-mono">
+                    <span className="text-[10px] text-slate-500 font-mono truncate">
                       {server.domain}
                     </span>
                   </div>
                 </div>
 
-                <div className="text-right">
+                <div className="text-right shrink-0 whitespace-nowrap pl-1">
                   <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 font-mono">
                     {server.views}회 조회
                   </span>
@@ -215,22 +227,22 @@ export function TrendingPanels() {
               <li key={item.eventSlug}>
                 <Link
                   href={`/event/${item.eventSlug}`}
-                  className="flex items-center justify-between p-2 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-[#131929] group"
+                  className="flex items-center justify-between gap-2.5 p-2 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-[#131929] group min-w-0"
                 >
-                  <div className="flex items-center gap-3">
-                    <span className={`w-4 text-center text-xs font-black ${
+                  <div className="flex items-center gap-2.5 min-w-0 flex-1 overflow-hidden">
+                    <span className={`w-4 shrink-0 text-center text-xs font-black ${
                       idx === 0 ? "text-rose-500" : idx === 1 ? "text-rose-400" : "text-slate-400 dark:text-slate-500"
                     }`}>
                       {idx + 1}
                     </span>
-                    <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
+                    <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate block">
                       {item.title}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-1 text-rose-500 dark:text-rose-400 font-bold text-xs font-mono">
-                    <ArrowUpRight className="h-3 w-3" />
-                    <span>급상승</span>
+                  <div className="flex items-center gap-0.5 shrink-0 text-rose-500 dark:text-rose-400 font-bold text-xs font-mono whitespace-nowrap pl-1">
+                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0" />
+                    <span className="whitespace-nowrap">급상승</span>
                   </div>
                 </Link>
               </li>
@@ -254,18 +266,18 @@ export function TrendingPanels() {
             <li key={server.hostSlug}>
               <Link
                 href={`/server/${server.hostSlug}`}
-                className="flex items-center justify-between p-2 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-[#131929] group"
+                className="flex items-center justify-between gap-3 p-2 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-[#131929] group min-w-0"
               >
-                <div className="flex items-center gap-3">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900/40 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                <div className="flex items-center gap-3 min-w-0 flex-1 overflow-hidden">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900/40 text-xs font-bold text-emerald-600 dark:text-emerald-400">
                     {server.tag}
                   </div>
-                  <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  <span className="text-xs font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors truncate">
                     {server.name}
                   </span>
                 </div>
 
-                <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 font-mono">
+                <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 font-mono shrink-0 whitespace-nowrap pl-1">
                   {server.views} views
                 </span>
               </Link>
