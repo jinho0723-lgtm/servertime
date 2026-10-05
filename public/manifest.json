@@ -1,0 +1,26 @@
+{
+  "name": "SERVERTIME - 정밀 서버시간",
+  "short_name": "SERVERTIME",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090E",
+  "theme_color": "#07090E",
+  "description": "NOL 티켓(구 인터파크티켓), YES24, 티켓링크, 멜론티켓, 네이버 등 주요 사이트의 서버시간을 확인하세요.",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
