@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { NormalizedEvent } from "@/lib/ingestion/types";
 import { TargetCountdown } from "@/components/clock/TargetCountdown";
-import { formatKstTime, formatKstTimeWithSec, isWithinKstToday } from "@/lib/utils";
+import { formatKstTime, formatKstTimeWithSec, isWithinKstToday, getOptimizedImageUrl } from "@/lib/utils";
 
 interface TodayOpenGridProps {
   events: NormalizedEvent[];
@@ -132,7 +132,7 @@ export function TodayOpenGrid({ events, currentEpochMs }: TodayOpenGridProps) {
                 <div className="relative my-3 aspect-[16/10] w-full overflow-hidden rounded-xl border border-slate-800 flex items-center justify-center">
                   {hasImage ? (
                     <img
-                      src={evt.imageUrl}
+                      src={getOptimizedImageUrl(evt.imageUrl, 400)}
                       alt={evt.title}
                       width={400}
                       height={250}

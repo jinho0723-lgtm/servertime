@@ -82,6 +82,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <meta name="theme-color" content="#07090E" />
+        <link rel="preconnect" href="https://wsrv.nl" crossOrigin="anonymous" />
         <style
           dangerouslySetInnerHTML={{
             __html: `html,body{margin:0;padding:0;background-color:#07090E;color:#f8fafc;box-sizing:border-box;}*,*::before,*::after{box-sizing:inherit;}`,
