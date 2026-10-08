@@ -11,8 +11,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/api/'],
       },
+      {
+        userAgent: 'Yeti',
+        allow: '/',
+      },
     ],
     sitemap: `${SITE_CONFIG.canonicalBase}/sitemap.xml`,
-    host: SITE_CONFIG.canonicalBase,
   };
 }
