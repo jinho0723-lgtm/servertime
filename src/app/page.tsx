@@ -89,12 +89,15 @@ export default function HomePage() {
         <AdSlot slotId="home-middle-responsive" format="auto" />
 
         {/* 3. Live 3-Column Panels (인기 서버, 급상승 이벤트, 지금 사람들이 보는 곳) */}
-        <section>
+        <section style={{ contentVisibility: "auto", containIntrinsicSize: "0 450px" }}>
           <TrendingPanels />
         </section>
 
         {/* 4. Supported Platforms & Core Transparency Section */}
-        <section className="rounded-3xl premium-card p-6 sm:p-8 space-y-6">
+        <section
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 350px" }}
+          className="rounded-3xl premium-card p-6 sm:p-8 space-y-6"
+        >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
             <div>
               <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2.5">
@@ -166,7 +169,10 @@ export default function HomePage() {
         </section>
 
         {/* 5. AEO / GEO Search Engine FAQ Section */}
-        <section className="rounded-3xl premium-card p-6 sm:p-8 space-y-6">
+        <section
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 500px" }}
+          className="rounded-3xl premium-card p-6 sm:p-8 space-y-6"
+        >
           <div className="flex items-center gap-2.5 border-b border-slate-200 dark:border-slate-800 pb-4">
             <HelpCircle className="h-6 w-6 text-purple-500 dark:text-purple-400" />
             <div>

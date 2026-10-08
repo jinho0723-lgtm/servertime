@@ -105,6 +105,7 @@ export function TodayOpenGrid({ events, currentEpochMs }: TodayOpenGridProps) {
                 key={evt.id}
                 href={`/event/${evt.slug}`}
                 prefetch={false}
+                style={{ contentVisibility: "auto", containIntrinsicSize: "280px 320px" }}
                 className="group relative flex flex-col justify-between overflow-hidden rounded-2xl premium-card p-4 transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Top Row: Time Badge & Platform */}
@@ -136,9 +137,10 @@ export function TodayOpenGrid({ events, currentEpochMs }: TodayOpenGridProps) {
                       width={400}
                       height={250}
                       decoding="async"
+                      loading="lazy"
+                      fetchPriority="low"
                       onError={() => handleImageError(evt.id)}
                       className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
                     />
                   ) : (
                     <div className={`w-full h-full bg-gradient-to-br ${theme.bg} p-4 flex flex-col justify-between text-left relative overflow-hidden`}>
