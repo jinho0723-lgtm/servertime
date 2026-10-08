@@ -149,6 +149,7 @@ export function TrendingPanels() {
             <li key={server.hostSlug}>
               <Link
                 href={`/server/${server.hostSlug}`}
+                prefetch={false}
                 className="flex items-center justify-between gap-3 p-2 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-[#131929] group min-w-0"
               >
                 <div className="flex items-center gap-3 min-w-0 flex-1 overflow-hidden">
@@ -227,6 +228,7 @@ export function TrendingPanels() {
               <li key={item.eventSlug}>
                 <Link
                   href={`/event/${item.eventSlug}`}
+                  prefetch={false}
                   className="flex items-center justify-between gap-2.5 p-2 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-[#131929] group min-w-0"
                 >
                   <div className="flex items-center gap-2.5 min-w-0 flex-1 overflow-hidden">
@@ -266,6 +268,7 @@ export function TrendingPanels() {
             <li key={server.hostSlug}>
               <Link
                 href={`/server/${server.hostSlug}`}
+                prefetch={false}
                 className="flex items-center justify-between gap-3 p-2 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-[#131929] group min-w-0"
               >
                 <div className="flex items-center gap-3 min-w-0 flex-1 overflow-hidden">

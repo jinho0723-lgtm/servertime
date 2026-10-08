@@ -27,6 +27,7 @@ export function MobileDock() {
             <Link
               key={tab.href}
               href={tab.href}
+              prefetch={false}
               className={`flex flex-col items-center justify-center py-1 px-3 ${
                 isActive ? "text-blue-400" : "text-slate-400 hover:text-slate-200"
               }`}

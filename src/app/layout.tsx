@@ -37,11 +37,23 @@ export const metadata: Metadata = {
     siteName: "SERVERTIME",
     locale: "ko_KR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SERVERTIME - 정확한 서버시간, 결정적인 순간을 놓치지 마세요.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "SERVERTIME - 정확한 서버시간",
     description: SITE_CONFIG.shortDescription,
+    images: ["/og-image.jpg"],
+  },
+  alternates: {
+    canonical: SITE_CONFIG.canonicalBase,
   },
   manifest: "/manifest.json",
   icons: {
@@ -68,6 +80,11 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <meta name="theme-color" content="#07090E" />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `html,body{margin:0;padding:0;background-color:#07090E;color:#f8fafc;box-sizing:border-box;}*,*::before,*::after{box-sizing:inherit;}`,
+          }}
+        />
         {isProduction && adsenseClient && (
           <script
             async

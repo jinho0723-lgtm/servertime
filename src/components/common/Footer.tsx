@@ -23,15 +23,15 @@ export function Footer() {
               <span>100% 완전 비회원제 보증</span>
             </div>
             <div className="flex flex-wrap gap-x-3 gap-y-1 pt-2 text-[11px] text-slate-500 dark:text-slate-400">
-              <Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400">서비스 소개</Link>
+              <Link href="/about" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">서비스 소개</Link>
               <span className="text-slate-300 dark:text-slate-600">·</span>
-              <Link href="/accuracy" className="hover:text-blue-600 dark:hover:text-blue-400">기술 안내</Link>
+              <Link href="/accuracy" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">기술 안내</Link>
               <span className="text-slate-300 dark:text-slate-600">·</span>
-              <Link href="/guide" className="hover:text-blue-600 dark:hover:text-blue-400">가이드</Link>
+              <Link href="/guide" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">가이드</Link>
               <span className="text-slate-300 dark:text-slate-600">·</span>
-              <Link href="/privacy" className="hover:text-blue-600 dark:hover:text-blue-400">개인정보처리방침</Link>
+              <Link href="/privacy" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">개인정보처리방침</Link>
               <span className="text-slate-300 dark:text-slate-600">·</span>
-              <Link href="/terms" className="hover:text-blue-600 dark:hover:text-blue-400">이용약관</Link>
+              <Link href="/terms" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">이용약관</Link>
             </div>
           </div>
 
@@ -39,11 +39,11 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-900 dark:text-slate-300">인기 서버시간</h4>
             <ul className="mt-3 space-y-2 text-xs">
-              <li><Link href="/server/nol-ticket" className="hover:text-blue-600 dark:hover:text-blue-400">NOL 티켓 (구 인터파크) 서버시간</Link></li>
-              <li><Link href="/server/yes24" className="hover:text-blue-600 dark:hover:text-blue-400">예스24 티켓 서버시간</Link></li>
-              <li><Link href="/server/ticketlink" className="hover:text-blue-600 dark:hover:text-blue-400">티켓링크 서버시간</Link></li>
-              <li><Link href="/server/melon" className="hover:text-blue-600 dark:hover:text-blue-400">멜론티켓 서버시간</Link></li>
-              <li><Link href="/server/naver-booking" className="hover:text-blue-600 dark:hover:text-blue-400">네이버 예약 서버시간</Link></li>
+              <li><Link href="/server/nol-ticket" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">NOL 티켓 (구 인터파크) 서버시간</Link></li>
+              <li><Link href="/server/yes24" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">예스24 티켓 서버시간</Link></li>
+              <li><Link href="/server/ticketlink" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">티켓링크 서버시간</Link></li>
+              <li><Link href="/server/melon" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">멜론티켓 서버시간</Link></li>
+              <li><Link href="/server/naver-booking" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">네이버 예약 서버시간</Link></li>
             </ul>
           </div>
 
@@ -51,11 +51,11 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-900 dark:text-slate-300">도구 및 트레이닝</h4>
             <ul className="mt-3 space-y-2 text-xs">
-              <li><Link href="/practice" className="hover:text-blue-600 dark:hover:text-blue-400">티켓팅 연습 센터</Link></li>
-              <li><Link href="/practice?tab=timing" className="hover:text-blue-600 dark:hover:text-blue-400">정각 00초 클릭 훈련</Link></li>
-              <li><Link href="/practice?tab=seat" className="hover:text-blue-600 dark:hover:text-blue-400">포도알 좌석 선택 훈련</Link></li>
-              <li><Link href="/tools/countdown" className="hover:text-blue-600 dark:hover:text-blue-400">밀리초 정밀 타이머</Link></li>
-              <li><Link href="/tools/world-clock" className="hover:text-blue-600 dark:hover:text-blue-400">세계 표준시 비교</Link></li>
+              <li><Link href="/practice" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">티켓팅 연습 센터</Link></li>
+              <li><Link href="/practice?tab=timing" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">정각 00초 클릭 훈련</Link></li>
+              <li><Link href="/practice?tab=seat" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">포도알 좌석 선택 훈련</Link></li>
+              <li><Link href="/tools/countdown" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">밀리초 정밀 타이머</Link></li>
+              <li><Link href="/tools/world-clock" prefetch={false} className="hover:text-blue-600 dark:hover:text-blue-400">세계 표준시 비교</Link></li>
             </ul>
           </div>
 

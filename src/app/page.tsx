@@ -107,6 +107,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/guide"
+              prefetch={false}
               className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
             >
               <span>서버시간 활용 가이드 전체보기</span>
@@ -124,11 +125,11 @@ export default function HomePage() {
                 NOL 티켓(구 인터파크티켓), YES24, 티켓링크, 멜론티켓 등 국내 대표 예매처의 서버시간과 정각 오픈 카운트다운을 지원합니다.
               </p>
               <div className="pt-2 flex flex-wrap gap-1.5 text-[11px] font-mono">
-                <Link href="/server/nol-ticket" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">/server/nol-ticket</Link>
+                <Link href="/server/nol-ticket" prefetch={false} className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">/server/nol-ticket</Link>
                 <span className="text-slate-400 dark:text-slate-600">·</span>
-                <Link href="/server/yes24" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">/server/yes24</Link>
+                <Link href="/server/yes24" prefetch={false} className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">/server/yes24</Link>
                 <span className="text-slate-400 dark:text-slate-600">·</span>
-                <Link href="/server/melon" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">/server/melon</Link>
+                <Link href="/server/melon" prefetch={false} className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">/server/melon</Link>
               </div>
             </div>
 

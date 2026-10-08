@@ -74,6 +74,7 @@ export function TodayOpenGrid({ events, currentEpochMs }: TodayOpenGridProps) {
         </div>
         <Link
           href="/open/today"
+          prefetch={false}
           className="text-xs font-medium text-slate-400 hover:text-white transition-colors"
         >
           전체보기 &gt;
@@ -81,7 +82,7 @@ export function TodayOpenGrid({ events, currentEpochMs }: TodayOpenGridProps) {
       </div>
 
       {displayList.length === 0 ? (
-        <div className="w-full rounded-2xl border border-dashed border-slate-800 bg-[#0C101A]/60 p-8 text-center">
+        <div className="w-full min-h-[220px] flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-800 bg-[#0C101A]/60 p-8 text-center">
           <p className="text-sm font-medium text-slate-400">
             현재 확인된 오픈 일정이 없습니다. 새로운 일정을 자동으로 수집 중입니다.
           </p>
@@ -103,6 +104,7 @@ export function TodayOpenGrid({ events, currentEpochMs }: TodayOpenGridProps) {
               <Link
                 key={evt.id}
                 href={`/event/${evt.slug}`}
+                prefetch={false}
                 className="group relative flex flex-col justify-between overflow-hidden rounded-2xl premium-card p-4 transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Top Row: Time Badge & Platform */}
@@ -131,6 +133,9 @@ export function TodayOpenGrid({ events, currentEpochMs }: TodayOpenGridProps) {
                     <img
                       src={evt.imageUrl}
                       alt={evt.title}
+                      width={400}
+                      height={250}
+                      decoding="async"
                       onError={() => handleImageError(evt.id)}
                       className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"

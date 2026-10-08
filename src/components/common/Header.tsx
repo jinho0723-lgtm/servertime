@@ -59,7 +59,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand */}
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-2.5">
+          <Link href="/" prefetch={false} className="flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-500/20">
               <Clock className="h-5 w-5 text-white" />
             </div>
@@ -77,6 +77,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  prefetch={false}
                   className={`rounded-md px-3.5 py-2 text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-blue-600/10 text-blue-600 dark:text-blue-400 font-bold"
@@ -94,6 +95,7 @@ export function Header() {
         <div className="flex items-center gap-2.5">
           <Link
             href="/server"
+            prefetch={false}
             className="flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-[#263147] bg-slate-100/90 dark:bg-[#101522] px-3 py-1.5 text-xs text-slate-700 dark:text-slate-300 hover:border-blue-500/50 hover:text-slate-900 dark:hover:text-white transition-colors"
           >
             <Search className="h-3.5 w-3.5 text-slate-400" />
