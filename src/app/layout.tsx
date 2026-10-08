@@ -68,10 +68,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "서버시간 | 인터파크·YES24·티켓링크·멜론티켓 정밀 서버타임 - SERVERTIME",
+    title: "정확한 서버시간 확인 타임시계 (인터파크·YES24·멜론·수강신청) | SERVERTIME",
     description:
-      "실시간 서버시간 확인! 인터파크 티켓(NOL), YES24, 티켓링크, 멜론티켓, 대학교 수강신청 초단위 정밀 시계.",
+      "0.1초가 중요한 순간! 인터파크 티켓(NOL), YES24, 멜론티켓, 대학교 수강신청 초단위 정밀 시계.",
     images: ["/og-image.jpg"],
+  },
+  verification: {
+    other: {
+      "naver-site-verification": "56387e926ac73b92593fa053864ddc69a368f0cf",
+    },
   },
   alternates: {
     canonical: SITE_CONFIG.canonicalBase,
@@ -101,6 +106,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className="dark">
       <head>
+        <meta name="naver-site-verification" content="56387e926ac73b92593fa053864ddc69a368f0cf" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <meta name="theme-color" content="#07090E" />
         <link rel="preconnect" href="https://wsrv.nl" crossOrigin="anonymous" />
