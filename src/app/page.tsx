@@ -13,7 +13,7 @@ import { AdSlot } from "@/components/common/AdSlot";
 import { NormalizedEvent } from "@/lib/ingestion/types";
 import { getApiUrl } from "@/lib/utils";
 import { SITE_CONFIG, COMMON_AEO_FAQS } from "@/lib/site-config";
-import { ShieldCheck, Zap, Globe, Clock, HelpCircle, ChevronRight } from "lucide-react";
+import { ShieldCheck, Zap, Globe, Clock, HelpCircle, ChevronRight, BookOpen, CheckCircle2, Timer } from "lucide-react";
 
 export default function HomePage() {
   const [currentEpoch, setCurrentEpoch] = useState(Date.now());
@@ -168,7 +168,89 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5. AEO / GEO Search Engine FAQ Section */}
+        {/* 5. Comprehensive Ticketing & Server Time SEO Knowledge Section */}
+        <section
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 550px" }}
+          className="rounded-3xl premium-card p-6 sm:p-8 space-y-6"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 mb-1">
+                <BookOpen className="h-3.5 w-3.5" />
+                <span>SERVERTIME KNOWLEDGE BASE</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+                서버시간이란? 00초 정각 티켓팅·수강신청 완벽 성공 전략
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                스마트폰 시계나 PC 시계 대신 웹서버 고유 시각을 확인해야 하는 이유와 주요 예매처별 공략 노하우를 확인하세요.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* Guide Card 1 */}
+            <article className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#090C16] p-5 space-y-3 shadow-sm dark:shadow-none">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <Clock className="h-4 w-4 text-blue-500" />
+                <span>서버시간과 컴퓨터 시계의 차이</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                일반 컴퓨터나 스마트폰 시계는 통신사 기지국이나 로컬 타임서버에 맞춰져 있어, 인터파크나 예스24 등 대상 웹사이트의 서버 시계와 <strong>0.5초에서 최대 3초 이상 오차</strong>가 발생합니다. 티켓팅 오픈 버튼은 오직 해당 웹사이트의 서버 시계를 기준으로 활성화되므로 정밀 서버시간 확인이 필수적입니다.
+              </p>
+            </article>
+
+            {/* Guide Card 2 */}
+            <article className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#090C16] p-5 space-y-3 shadow-sm dark:shadow-none">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <Zap className="h-4 w-4 text-amber-500" />
+                <span>인터파크(NOL)·YES24 00초 클릭법</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                인터파크 티켓(NOL 티켓)과 YES24는 정각 00초에 예매창이 열립니다. 네트워크 왕복 지연(RTT)이 약 20ms 수준이라면 <strong>정각 59초 850~950ms 사이</strong>에 새로고침 또는 예매 버튼을 클릭하여 서버에 00.00초 정각에 패킷이 도착하도록 맞추는 것이 핵심 성공 공식입니다.
+              </p>
+            </article>
+
+            {/* Guide Card 3 */}
+            <article className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#090C16] p-5 space-y-3 shadow-sm dark:shadow-none">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <Timer className="h-4 w-4 text-emerald-500" />
+                <span>수강신청 & 네이버 예약 전략</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                대학교 수강신청 포털(서울대, 고려대, 연세대 등) 및 네이버 예약, 캐치테이블 등은 서버 트래픽이 일시에 몰립니다. 미리 10분 전 로그인 세션을 갱신하고, SERVERTIME 카운트다운을 화면 한쪽에 띄워 정각 00초 알림음에 맞춰 단일 클릭으로 진입하는 것이 안전합니다.
+              </p>
+            </article>
+          </div>
+
+          {/* Quick checklist */}
+          <div className="rounded-2xl border border-blue-500/20 bg-blue-50/50 dark:bg-blue-950/20 p-4 sm:p-5">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <span>티켓팅 00초 성공을 위한 필수 체크리스트</span>
+            </h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs text-slate-700 dark:text-slate-300">
+              <li className="flex items-start gap-1.5">
+                <span className="text-blue-500 font-bold">1.</span>
+                <span>오픈 10분 전 사전 로그인 및 본인인증 완료</span>
+              </li>
+              <li className="flex items-start gap-1.5">
+                <span className="text-blue-500 font-bold">2.</span>
+                <span>브라우저 팝업 차단 해제 및 결제수단 사전등록</span>
+              </li>
+              <li className="flex items-start gap-1.5">
+                <span className="text-blue-500 font-bold">3.</span>
+                <span>Wi-Fi 대신 유선 인터넷 또는 안정된 5G 권장</span>
+              </li>
+              <li className="flex items-start gap-1.5">
+                <span className="text-blue-500 font-bold">4.</span>
+                <span>SERVERTIME 정각 카운트다운 알림 활성화</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* 6. AEO / GEO Search Engine FAQ Section */}
         <section
           style={{ contentVisibility: "auto", containIntrinsicSize: "0 500px" }}
           className="rounded-3xl premium-card p-6 sm:p-8 space-y-6"

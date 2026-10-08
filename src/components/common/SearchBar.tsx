@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Search, ArrowRight } from "lucide-react";
+import { Search } from "lucide-react";
 import { resolveTargetHostname } from "@/lib/domain-resolver";
 
 interface SearchBarProps {
@@ -26,14 +27,14 @@ export function SearchBar({
   };
 
   const popularQuickSites = [
-    { label: "NOL 티켓(구 인터파크)", slug: "nol-ticket" },
-    { label: "YES24", slug: "yes24" },
-    { label: "티켓링크", slug: "ticketlink" },
-    { label: "멜론티켓", slug: "melon" },
-    { label: "네이버", slug: "naver" },
-    { label: "서울대", slug: "snu" },
-    { label: "고려대", slug: "korea" },
-    { label: "연세대", slug: "yonsei" },
+    { label: "NOL 티켓(구 인터파크)", fullName: "인터파크 티켓(NOL) 서버시간", slug: "nol-ticket" },
+    { label: "YES24", fullName: "YES24 티켓 서버시간", slug: "yes24" },
+    { label: "티켓링크", fullName: "티켓링크 서버시간", slug: "ticketlink" },
+    { label: "멜론티켓", fullName: "멜론티켓 서버시간", slug: "melon" },
+    { label: "네이버", fullName: "네이버 예약 서버시간", slug: "naver" },
+    { label: "서울대", fullName: "서울대학교 수강신청 서버시간", slug: "snu" },
+    { label: "고려대", fullName: "고려대학교 수강신청 서버시간", slug: "korea" },
+    { label: "연세대", fullName: "연세대학교 수강신청 서버시간", slug: "yonsei" },
   ];
 
   return (
@@ -57,18 +58,19 @@ export function SearchBar({
         </button>
       </form>
 
-      {/* Popular quick buttons matching design_reference.png */}
+      {/* Popular quick links matching design_reference.png (Semantic anchor links for SEO) */}
       <div className="mt-3 flex flex-wrap items-center gap-1.5 text-xs">
         <span className="text-slate-500 dark:text-slate-400 mr-1 font-medium">인기 서버</span>
         {popularQuickSites.map((site) => (
-          <button
+          <Link
             key={site.slug}
-            type="button"
-            onClick={() => router.push(`/server/${site.slug}`)}
-            className="rounded-md border border-slate-200 dark:border-[#20293D] bg-slate-100/90 dark:bg-[#0F1422] px-2.5 py-1 text-slate-700 dark:text-slate-300 font-medium transition-colors hover:border-blue-500/50 hover:bg-blue-50 dark:hover:bg-slate-800/80 hover:text-blue-600 dark:hover:text-white shadow-sm dark:shadow-none"
+            href={`/server/${site.slug}`}
+            prefetch={false}
+            title={`${site.fullName} 확인하기`}
+            className="rounded-md border border-slate-200 dark:border-[#20293D] bg-slate-100/90 dark:bg-[#0F1422] px-2.5 py-1 text-slate-700 dark:text-slate-300 font-medium transition-colors hover:border-blue-500/50 hover:bg-blue-50 dark:hover:bg-slate-800/80 hover:text-blue-600 dark:hover:text-white shadow-sm dark:shadow-none inline-flex items-center"
           >
             {site.label}
-          </button>
+          </Link>
         ))}
       </div>
     </div>
