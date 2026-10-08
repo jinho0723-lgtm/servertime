@@ -113,6 +113,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/server/interpark`,
+      lastModified: now,
+      changeFrequency: 'always',
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/server/interpark-ticket`,
+      lastModified: now,
+      changeFrequency: 'always',
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/server/yes24`,
       lastModified: now,
       changeFrequency: 'always',
@@ -129,6 +141,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: 'always',
       priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/server/melon-ticket`,
+      lastModified: now,
+      changeFrequency: 'always',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/server/naver-booking`,

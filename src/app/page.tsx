@@ -284,7 +284,52 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 6. Bottom AdSense Placement (Above Footer) */}
+        {/* 7. In-Depth Google SEO Server Time Guide Section */}
+        <section
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 400px" }}
+          className="rounded-3xl premium-card p-6 sm:p-8 space-y-6 text-slate-700 dark:text-slate-300 shadow-sm dark:shadow-none"
+        >
+          <div className="border-b border-slate-200 dark:border-slate-800 pb-4">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+              정확한 서버시간(Server Time)과 밀리초 시계가 중요한 이유
+            </h2>
+          </div>
+
+          <div className="space-y-4 text-xs sm:text-sm leading-relaxed">
+            <p>
+              인기 콘서트 티켓팅, 대학교 수강신청, 기차표(코레일 KTX/SRT) 예매, 한정판 스니커즈 드로우 등 0.1초의 찰나로 성공과 실패가 갈리는 순간에는 우리가 일상에서 사용하는 스마트폰 시계나 표준시(UTC/KST)만으로는 부족합니다. 각 웹사이트(예: <strong>인터파크 티켓(NOL 티켓)</strong>, <strong>YES24 티켓</strong>, <strong>멜론티켓</strong>, <strong>티켓링크</strong>, 대학교 학사정보시스템)는 고유한 자체 웹서버를 운영하고 있으며, 해당 서버가 인식하는 내부 시각은 기기나 통신망에 따라 미세하게 차이가 발생합니다.
+            </p>
+            <p>
+              <strong>SERVERTIME</strong>은 대상 사이트의 서버 응답 속도와 네트워크 왕복 지연(RTT)을 실시간으로 추적하여 가장 정확한 밀리초(ms) 단위의 실시간 서버타임 시계와 정각 오픈 카운트다운을 무료로 제공합니다. 네이비즘, 타임시커 등 기존 서버시간 시계와 비교하여 불필요한 광고 딜레이를 최소화하고, 브라우저 단조 시계(performance.now) 기반의 고정밀 보간 알고리즘을 적용했습니다.
+            </p>
+          </div>
+
+          <div className="space-y-3 pt-2">
+            <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+              티켓팅 및 대학 수강신청 성공을 위한 서버타임 활용 꿀팁
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm list-disc pl-5 leading-relaxed">
+              <li>
+                <strong>정시 오픈 타이밍 저격 (59.8초 룰):</strong> 서버 시계가 59분 59초에서 00초로 넘어가는 순간, 회선 지연 시간(Ping/RTT)을 고려하여 <strong>59초 후반(예: 59.8초~59.9초)</strong>에 새로고침(F5)이나 예매하기 버튼을 클릭하는 것이 최적의 타이밍입니다.
+              </li>
+              <li>
+                <strong>네트워크 환경 최적화:</strong> 무선 와이파이(Wi-Fi)보다는 안정적인 유선 랜(LAN) 환경에서 서버시간을 측정하고 접속하는 것이 패킷 손실과 핑 지연 변동성을 줄이는 데 유리합니다.
+              </li>
+              <li>
+                <strong>브라우저 탭 &amp; 메모리 관리:</strong> 불필요한 백그라운드 탭과 프로그램을 닫아 브라우저의 자바스크립트 연산 속도를 확보하면 밀리초 시계가 지연 없이 부드럽고 정확하게 동작하며 예매창 팝업이 지체 없이 열립니다.
+              </li>
+              <li>
+                <strong>주요 예매처별 사전 세팅:</strong> NOL 티켓(구 인터파크) 및 YES24, 멜론티켓은 팝업 차단 해제와 결제수단 사전등록(NOL페이, 카카오페이 등)을 10분 전 반드시 마쳐두어야 이선좌(이미 선택된 좌석)를 피할 수 있습니다.
+              </li>
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-100/60 dark:bg-[#0A0E1A] p-4 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+            SERVERTIME은 실시간 동기화 기술을 바탕으로 수강신청 서버시간, 대형 콘서트·뮤지컬 티켓 예매 사이트의 서버 시각을 가장 신속하게 매칭합니다. 정밀한 초시계와 오픈 알림음을 활용하여 원하는 공연의 포도알(좌석) 선점 및 수강신청 올클리어(All-Clear)를 달성해 보세요.
+          </div>
+        </section>
+
+        {/* 8. Bottom AdSense Placement (Above Footer) */}
         <AdSlot slotId="home-bottom-leaderboard" format="leaderboard" />
       </main>
 

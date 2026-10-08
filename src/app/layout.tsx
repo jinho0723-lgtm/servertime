@@ -5,11 +5,11 @@ import { SITE_CONFIG } from "@/lib/site-config";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.canonicalBase),
   title: {
-    default: "서버시간 | 인터파크·YES24·티켓링크·멜론티켓 정밀 서버타임 - SERVERTIME",
+    default: "정확한 서버시간 확인 타임시계 (인터파크·YES24·멜론·수강신청) | SERVERTIME",
     template: "%s | SERVERTIME",
   },
   description:
-    "실시간 서버시간 확인! 인터파크 티켓(NOL), YES24, 티켓링크, 멜론티켓, 대학교 수강신청 등 00초 정각 티켓팅을 위한 초단위·밀리초 정밀 서버타임 시계와 오픈 카운트다운을 무료로 제공합니다.",
+    "0.1초가 중요한 순간! 인터파크 티켓(NOL), YES24, 멜론티켓, 티켓링크 및 대학교 수강신청 정확한 서버시간을 밀리초 단위로 확인하고 00초 정각 티켓팅에 성공하세요.",
   keywords: [
     "서버시간",
     "서버시간 확인",
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "서버시간 | 인터파크·YES24·티켓링크·멜론티켓 정밀 서버타임 - SERVERTIME",
+    title: "정확한 서버시간 확인 타임시계 (인터파크·YES24·멜론·수강신청) | SERVERTIME",
     description:
-      "실시간 서버시간 확인! 인터파크 티켓(NOL), YES24, 티켓링크, 멜론티켓, 대학교 수강신청 등 00초 정각 티켓팅을 위한 초단위·밀리초 정밀 서버타임 시계와 오픈 카운트다운.",
+      "0.1초가 중요한 순간! 인터파크 티켓(NOL), YES24, 멜론티켓, 티켓링크 및 대학교 수강신청 정확한 서버시간을 밀리초 단위로 확인하고 00초 정각 티켓팅에 성공하세요.",
     url: SITE_CONFIG.canonicalBase,
     siteName: "SERVERTIME",
     locale: "ko_KR",
