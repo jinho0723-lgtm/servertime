@@ -67,6 +67,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { AdSenseScript } from "@/components/common/AdSenseScript";
+
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-7016829181538872";
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -85,16 +87,10 @@ export default function RootLayout({
             __html: `html,body{margin:0;padding:0;background-color:#07090E;color:#f8fafc;box-sizing:border-box;}*,*::before,*::after{box-sizing:inherit;}`,
           }}
         />
-        {isProduction && adsenseClient && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-            crossOrigin="anonymous"
-          />
-        )}
       </head>
       <body className="bg-[#07090E] text-slate-100 min-h-screen antialiased selection:bg-blue-600 selection:text-white">
         {children}
+        {isProduction && adsenseClient && <AdSenseScript client={adsenseClient} />}
       </body>
     </html>
   );
